@@ -51,23 +51,23 @@ export function rotationSpeedToFanMode(speed: number): AcFanMode {
  */
 export function acModeToTargetState(mode: AcMode, validTargets: readonly number[]): number {
   switch (mode) {
-    case AcMode.Auto:
-      if (validTargets.includes(HAP_TARGET_STATE.AUTO)) {
-        return HAP_TARGET_STATE.AUTO;
-      }
-      break;
-    case AcMode.Heat:
-      if (validTargets.includes(HAP_TARGET_STATE.HEAT)) {
-        return HAP_TARGET_STATE.HEAT;
-      }
-      break;
-    case AcMode.Cool:
-      if (validTargets.includes(HAP_TARGET_STATE.COOL)) {
-        return HAP_TARGET_STATE.COOL;
-      }
-      break;
-    default:
-      break;
+  case AcMode.Auto:
+    if (validTargets.includes(HAP_TARGET_STATE.AUTO)) {
+      return HAP_TARGET_STATE.AUTO;
+    }
+    break;
+  case AcMode.Heat:
+    if (validTargets.includes(HAP_TARGET_STATE.HEAT)) {
+      return HAP_TARGET_STATE.HEAT;
+    }
+    break;
+  case AcMode.Cool:
+    if (validTargets.includes(HAP_TARGET_STATE.COOL)) {
+      return HAP_TARGET_STATE.COOL;
+    }
+    break;
+  default:
+    break;
   }
   if (validTargets.includes(HAP_TARGET_STATE.AUTO)) {
     return HAP_TARGET_STATE.AUTO;
@@ -77,12 +77,12 @@ export function acModeToTargetState(mode: AcMode, validTargets: readonly number[
 
 export function targetStateToAcMode(value: number): AcMode {
   switch (value) {
-    case HAP_TARGET_STATE.HEAT:
-      return AcMode.Heat;
-    case HAP_TARGET_STATE.COOL:
-      return AcMode.Cool;
-    default:
-      return AcMode.Auto;
+  case HAP_TARGET_STATE.HEAT:
+    return AcMode.Heat;
+  case HAP_TARGET_STATE.COOL:
+    return AcMode.Cool;
+  default:
+    return AcMode.Auto;
   }
 }
 
@@ -101,32 +101,32 @@ export function computeCurrentHeaterCoolerState(
   const target = targetTemperature;
 
   switch (mode) {
-    case AcMode.Heat:
-      if (indoor !== null && target !== null && indoor >= target) {
-        return HAP_CURRENT_STATE.IDLE;
-      }
+  case AcMode.Heat:
+    if (indoor !== null && target !== null && indoor >= target) {
+      return HAP_CURRENT_STATE.IDLE;
+    }
+    return HAP_CURRENT_STATE.HEATING;
+  case AcMode.Cool:
+    if (indoor !== null && target !== null && indoor <= target) {
+      return HAP_CURRENT_STATE.IDLE;
+    }
+    return HAP_CURRENT_STATE.COOLING;
+  case AcMode.Dry:
+    return HAP_CURRENT_STATE.COOLING;
+  case AcMode.Fan:
+    return HAP_CURRENT_STATE.IDLE;
+  case AcMode.Auto:
+    if (indoor === null || target === null) {
+      return HAP_CURRENT_STATE.IDLE;
+    }
+    if (indoor > target) {
+      return HAP_CURRENT_STATE.COOLING;
+    }
+    if (indoor < target) {
       return HAP_CURRENT_STATE.HEATING;
-    case AcMode.Cool:
-      if (indoor !== null && target !== null && indoor <= target) {
-        return HAP_CURRENT_STATE.IDLE;
-      }
-      return HAP_CURRENT_STATE.COOLING;
-    case AcMode.Dry:
-      return HAP_CURRENT_STATE.COOLING;
-    case AcMode.Fan:
-      return HAP_CURRENT_STATE.IDLE;
-    case AcMode.Auto:
-      if (indoor === null || target === null) {
-        return HAP_CURRENT_STATE.IDLE;
-      }
-      if (indoor > target) {
-        return HAP_CURRENT_STATE.COOLING;
-      }
-      if (indoor < target) {
-        return HAP_CURRENT_STATE.HEATING;
-      }
-      return HAP_CURRENT_STATE.IDLE;
-    default:
-      return HAP_CURRENT_STATE.IDLE;
+    }
+    return HAP_CURRENT_STATE.IDLE;
+  default:
+    return HAP_CURRENT_STATE.IDLE;
   }
 }

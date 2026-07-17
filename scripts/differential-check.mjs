@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+/* eslint-disable */
 /**
  * Differential test: run the same operations through the compiled TypeScript
  * codec and the original Python library, and compare results.
@@ -90,21 +91,21 @@ const featuresToComparable = (features) => ({
 const tsAnswer = (request) => {
   try {
     switch (request.op) {
-      case 'roundtrip':
-        return { encoded: FcuState.fromHexState(request.hex).encode() };
-      case 'update': {
-        const state = FcuState.fromHexState(request.base);
-        const changed = state.update(request.update);
-        return { encoded: state.encode(), changed };
-      }
-      case 'features':
-        return featuresToComparable(Features.fromMeritStringAndModel(request.merit, request.model));
-      case 'featuresForMode':
-        return featuresToComparable(
-          Features.fromMeritStringAndModel(request.merit, request.model).forAcMode(request.mode),
-        );
-      default:
-        return { error: `unknown op ${request.op}` };
+    case 'roundtrip':
+      return { encoded: FcuState.fromHexState(request.hex).encode() };
+    case 'update': {
+      const state = FcuState.fromHexState(request.base);
+      const changed = state.update(request.update);
+      return { encoded: state.encode(), changed };
+    }
+    case 'features':
+      return featuresToComparable(Features.fromMeritStringAndModel(request.merit, request.model));
+    case 'featuresForMode':
+      return featuresToComparable(
+        Features.fromMeritStringAndModel(request.merit, request.model).forAcMode(request.mode),
+      );
+    default:
+      return { error: `unknown op ${request.op}` };
     }
   } catch (e) {
     return { error: `${e.constructor.name}: ${e.message}` };

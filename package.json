@@ -2,16 +2,17 @@
   "name": "homebridge-toshiba-ac",
   "displayName": "Homebridge Toshiba AC",
   "version": "0.1.0",
+  "type": "module",
   "description": "Homebridge plugin for Toshiba air conditioners with WiFi modules (Toshiba Home AC Control cloud)",
   "author": "Jonas Kesselmeier",
   "license": "Apache-2.0",
-  "homepage": "https://github.com/USERNAME/GITHUB_PROJECT_NAME#readme",
+  "homepage": "https://github.com/jonaskpb/homebridge-toshiba-ac#readme",
   "repository": {
     "type": "git",
-    "url": "https://github.com/USERNAME/GITHUB_PROJECT_NAME.git"
+    "url": "https://github.com/jonaskpb/homebridge-toshiba-ac.git"
   },
   "bugs": {
-    "url": "https://github.com/USERNAME/GITHUB_PROJECT_NAME/issues"
+    "url": "https://github.com/jonaskpb/homebridge-toshiba-ac/issues"
   },
   "main": "dist/index.js",
   "engines": {
@@ -28,8 +29,10 @@
   "scripts": {
     "build": "rimraf ./dist && tsc",
     "lint": "eslint . --max-warnings=0",
+    "lint:fix": "eslint . --fix",
     "prepublishOnly": "npm run lint && npm run build",
-    "watch": "npm run build && npm link && nodemon"
+    "watch": "npm run build && npm link && nodemon",
+    "test": "vitest run"
   },
   "keywords": [
     "homebridge-plugin",
