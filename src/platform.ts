@@ -12,12 +12,12 @@ import type {
   Service,
 } from 'homebridge';
 
-import { ToshibaAcAccessory } from './accessory';
-import { PLATFORM_NAME, PLUGIN_NAME } from './settings';
-import { ToshibaAcDevice } from './toshiba/device';
-import { ToshibaAcDeviceManager } from './toshiba/deviceManager';
-import { ToshibaInvalidCredentialsError } from './toshiba/httpApi';
-import { errorMessage, sleep } from './toshiba/utils';
+import { ToshibaAcAccessory } from './accessory.js';
+import { PLATFORM_NAME, PLUGIN_NAME } from './settings.js';
+import { ToshibaAcDevice } from './toshiba/device.js';
+import { ToshibaAcDeviceManager } from './toshiba/deviceManager.js';
+import { ToshibaInvalidCredentialsError } from './toshiba/httpApi.js';
+import { errorMessage, sleep } from './toshiba/utils.js';
 
 export interface ToshibaAcPlatformConfig extends PlatformConfig {
   username?: string;

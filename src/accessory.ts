@@ -11,11 +11,11 @@ import {
   TARGET_TEMP_MAX,
   TARGET_TEMP_MIN,
   targetStateToAcMode,
-} from './mapping';
-import type { ToshibaAcPlatform } from './platform';
-import { PartialAcState, ToshibaAcDevice } from './toshiba/device';
-import { AcMeritA, AcMode, AcStatus, AcSwingMode } from './toshiba/properties';
-import { errorMessage } from './toshiba/utils';
+} from './mapping.js';
+import type { ToshibaAcPlatform } from './platform.js';
+import { PartialAcState, ToshibaAcDevice } from './toshiba/device.js';
+import { AcMeritA, AcMode, AcStatus, AcSwingMode } from './toshiba/properties.js';
+import { errorMessage } from './toshiba/utils.js';
 
 /** HomeKit often sets several characteristics at once (scenes, mode+power);
  * commands are coalesced for this long and sent as one message. */

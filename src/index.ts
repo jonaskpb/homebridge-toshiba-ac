@@ -1,8 +1,8 @@
 import type { API } from 'homebridge';
 
-import { PLATFORM_NAME } from './settings';
-import { ToshibaAcPlatform } from './platform';
+import { PLATFORM_NAME } from './settings.js';
+import { ToshibaAcPlatform } from './platform.js';
 
-export = (api: API): void => {
+export default (api: API): void => {
   api.registerPlatform(PLATFORM_NAME, ToshibaAcPlatform);
 };

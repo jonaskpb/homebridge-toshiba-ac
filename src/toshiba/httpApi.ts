@@ -5,7 +5,7 @@
  * Apache-2.0.
  */
 
-import { errorMessage, JitterMode, Log, retryOnException, sleep } from './utils';
+import { errorMessage, JitterMode, Log, retryOnException, sleep } from './utils.js';
 
 const BASE_URL = 'https://mobileapi.toshibahomeaccontrols.com';
 const USER_AGENT =

@@ -14,7 +14,7 @@
 
 import mqtt, { MqttClient } from 'mqtt';
 
-import { errorMessage, Log } from './utils';
+import { errorMessage, Log } from './utils.js';
 
 const IOTHUB_API_VERSION = '2019-10-01';
 const CLIENT_TYPE = 'azure-iot-device/2.14.0';

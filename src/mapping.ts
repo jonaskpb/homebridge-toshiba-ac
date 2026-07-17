@@ -3,7 +3,7 @@
  * HeaterCooler characteristic values.
  */
 
-import { AcFanMode, AcMode, AcStatus } from './toshiba/properties';
+import { AcFanMode, AcMode, AcStatus } from './toshiba/properties.js';
 
 // HAP characteristic values (stable, defined by the HAP specification).
 export const HAP_ACTIVE = { INACTIVE: 0, ACTIVE: 1 } as const;

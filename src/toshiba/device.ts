@@ -6,10 +6,10 @@
  * Apache-2.0.
  */
 
-import { FcuState } from './fcuState';
-import { Features } from './features';
-import { ToshibaAcHttpApi, ToshibaAcDeviceInfo } from './httpApi';
-import { ToshibaMqttApi } from './mqttApi';
+import { FcuState } from './fcuState.js';
+import { Features } from './features.js';
+import { ToshibaAcHttpApi, ToshibaAcDeviceInfo } from './httpApi.js';
+import { ToshibaMqttApi } from './mqttApi.js';
 import {
   AcAirPureIon,
   AcFanMode,
@@ -20,8 +20,8 @@ import {
   AcSelfCleaning,
   AcStatus,
   AcSwingMode,
-} from './properties';
-import { errorMessage, Log } from './utils';
+} from './properties.js';
+import { errorMessage, Log } from './utils.js';
 
 const POLL_JITTER_MS = 300_000;
 

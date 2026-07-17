@@ -16,7 +16,7 @@ import {
   AcSelfCleaning,
   AcStatus,
   AcSwingMode,
-} from './properties';
+} from './properties.js';
 
 const DISABLED_AC_MERIT_B_FOR_MODE: Partial<Record<AcMode, AcMeritB[]>> = {
   [AcMode.Auto]: [AcMeritB.Fireplace1, AcMeritB.Fireplace2],

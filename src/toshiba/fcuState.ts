@@ -31,7 +31,7 @@ import {
   AcSelfCleaning,
   AcStatus,
   AcSwingMode,
-} from './properties';
+} from './properties.js';
 
 export const NONE_VAL = 0xff;
 export const NONE_VAL_HALF = 0x0f;

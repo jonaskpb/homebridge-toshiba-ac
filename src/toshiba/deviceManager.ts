@@ -5,10 +5,10 @@
  * Apache-2.0.
  */
 
-import { ToshibaAcDevice } from './device';
-import { ToshibaAcHttpApi } from './httpApi';
-import { ToshibaMqttApi } from './mqttApi';
-import { Log } from './utils';
+import { ToshibaAcDevice } from './device.js';
+import { ToshibaAcHttpApi } from './httpApi.js';
+import { ToshibaMqttApi } from './mqttApi.js';
+import { Log } from './utils.js';
 
 export class ToshibaAcDeviceManagerError extends Error {}
 
