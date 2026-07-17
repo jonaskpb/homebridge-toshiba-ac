@@ -1,0 +1,58 @@
+{
+  "name": "homebridge-toshiba-ac",
+  "displayName": "Homebridge Toshiba AC",
+  "version": "0.1.0",
+  "description": "Homebridge plugin for Toshiba air conditioners with WiFi modules (Toshiba Home AC Control cloud)",
+  "author": "Jonas Kesselmeier",
+  "license": "Apache-2.0",
+  "homepage": "https://github.com/USERNAME/GITHUB_PROJECT_NAME#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/USERNAME/GITHUB_PROJECT_NAME.git"
+  },
+  "bugs": {
+    "url": "https://github.com/USERNAME/GITHUB_PROJECT_NAME/issues"
+  },
+  "main": "dist/index.js",
+  "engines": {
+    "node": "^22.10.0 || ^24.0.0",
+    "homebridge": "^1.8.0 || ^2.0.0"
+  },
+  "files": [
+    "dist",
+    "config.schema.json",
+    "LICENSE",
+    "NOTICE",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "rimraf ./dist && tsc",
+    "lint": "eslint . --max-warnings=0",
+    "prepublishOnly": "npm run lint && npm run build",
+    "watch": "npm run build && npm link && nodemon"
+  },
+  "keywords": [
+    "homebridge-plugin",
+    "toshiba",
+    "air-conditioner",
+    "air-conditioning",
+    "climate",
+    "homekit"
+  ],
+  "dependencies": {
+    "mqtt": "^5.10.1",
+    "homebridge-lib": "^8.0.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/node": "^25.6.0",
+    "eslint": "^10.3.0",
+    "homebridge": "^2.0.0",
+    "nodemon": "^3.1.14",
+    "rimraf": "^6.1.3",
+    "ts-node": "^10.9.2",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.59.2",
+    "vitest": "^4.1.10"
+  }
+}

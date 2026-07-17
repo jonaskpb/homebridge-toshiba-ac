@@ -1,0 +1,58 @@
+{
+  "pluginAlias": "ToshibaAC",
+  "pluginType": "platform",
+  "singular": true,
+  "headerDisplay": "Controls Toshiba air conditioners with WiFi modules through the Toshiba Home AC Control cloud. Use the same credentials as the Toshiba Home AC Control mobile app.",
+  "footerDisplay": "All AC units registered to the account are exposed automatically as HeaterCooler accessories.",
+  "schema": {
+    "type": "object",
+    "properties": {
+      "name": {
+        "title": "Name",
+        "type": "string",
+        "default": "Toshiba AC",
+        "required": true
+      },
+      "username": {
+        "title": "Username",
+        "type": "string",
+        "required": true,
+        "description": "Your Toshiba Home AC Control account username (usually an e-mail address)."
+      },
+      "password": {
+        "title": "Password",
+        "type": "string",
+        "required": true,
+        "x-schema-form": {
+          "type": "password"
+        },
+        "description": "Your Toshiba Home AC Control account password."
+      },
+      "refreshIntervalMinutes": {
+        "title": "State refresh interval (minutes)",
+        "type": "integer",
+        "default": 30,
+        "minimum": 5,
+        "maximum": 1440,
+        "description": "How often the AC state is re-fetched over HTTP as a fallback. Real-time updates are pushed over MQTT independently of this."
+      },
+      "swingModeType": {
+        "title": "Swing mode mapped to HomeKit \"Oscillate\"",
+        "type": "string",
+        "default": "vertical",
+        "oneOf": [
+          { "title": "Vertical swing", "enum": ["vertical"] },
+          { "title": "Horizontal swing", "enum": ["horizontal"] },
+          { "title": "Vertical and horizontal swing", "enum": ["both"] }
+        ],
+        "description": "Which physical swing mode is activated when HomeKit enables oscillation. Falls back to vertical if the unit does not support the selected mode."
+      },
+      "exposeOutdoorTemperature": {
+        "title": "Expose outdoor temperature sensor",
+        "type": "boolean",
+        "default": false,
+        "description": "Adds a temperature sensor service per AC unit reporting the outdoor unit's temperature."
+      }
+    }
+  }
+}
